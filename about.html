@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Mytrip Boathouse Reservation</title>
     <style>
         * { 
@@ -126,13 +127,93 @@
             margin-top: 50px;
         }
 
+@media (max-width: 768px) {
+    nav {
+        padding: 12px 5%;
+    }
+
+    nav img {
+        width: 190px;
+        height: auto;
+    }
+
+    .menu-btn {
+        display: block;
+        font-size: 28px;
+        background: none;
+        border: none;
+        color: #003580;
+        cursor: pointer;
+        z-index: 2001;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -260px;
+        width: 240px;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 0;
+        padding: 80px 25px 25px;
+        box-shadow: -4px 0 15px rgba(0,0,0,0.15);
+        transition: right 0.3s ease;
+        z-index: 2000;
+    }
+
+    .nav-links.show {
+        right: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        margin-bottom: 18px;
+    }
+
+    .nav-links a {
+        display: block;
+        width: 100%;
+        font-size: 16px;
+        padding: 10px 0;
+    }
+
+    .btn-nav {
+        text-align: center;
+        padding: 12px;
+    }
+
+    .close-btn {
+        display: block;
+        position: absolute;
+        top: 18px;
+        right: 22px;
+        font-size: 30px;
+        background: none;
+        border: none;
+        color: #003580;
+        cursor: pointer;
+    }
+}
+
+@media (min-width: 769px) {
+    .menu-btn,
+    .close-btn {
+        display: none;
+    }
+}
+
     </style>
-    <link rel="icon" type="image/x-icon" href="Pictures/tlogo.png">
+    <link rel="icon" type="image/x-icon" href="/Pictures/tlogo.png">
 </head>
 <body>
     <nav>
         <div><img src="Pictures/logo.png" width="400px " alt="logo"></div>
+        <button class="menu-btn">&#9776;</button>
         <ul class="nav-links">
+            <button class="close-btn">&times;</button>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="packages.html">Packages</a></li>
