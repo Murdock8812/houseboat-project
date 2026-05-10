@@ -1,14 +1,11 @@
-
 document.addEventListener("DOMContentLoaded", function() {
     console.log("Project A20 Logic: Successfully Connected.");
-
 
     const datePicker = document.querySelector("input[type='date']");
     if (datePicker) {
         const today = new Date().toISOString().split('T')[0];
         datePicker.setAttribute('min', today);
     }
-
 
     const homeSearchBtn = document.querySelector(".btn-search");
     if (homeSearchBtn) {
@@ -22,13 +19,11 @@ document.addEventListener("DOMContentLoaded", function() {
         };
     }
 
-
     const submitBooking = document.getElementById("submitBooking");
     if (submitBooking) {
         submitBooking.onclick = function(e) {
-            e.preventDefault();
+            e.preventDefault(); // Prevents page reload
 
-       
             const name = document.getElementById("fullName");
             const email = document.getElementById("emailAddr");
             const phone = document.getElementById("phoneNumber");
@@ -40,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 if(el) el.style.border = "1px solid #ddd";
             });
 
-           
             if (name.value.trim().length < 3) {
                 showWarning("Please enter your full name.", name);
             } 
@@ -57,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 showWarning("Please select a houseboat package.", pkg);
             } 
             else {
-            
+
                 alert("✅ RESERVATION CONFIRMED!\n\nName: " + name.value + 
                       "\nPackage: " + pkg.value + 
                       "\nDate: " + date.value + 
@@ -68,7 +62,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         };
     }
-
 
     const contactForm = document.getElementById("contactForm");
     if (contactForm) {
@@ -86,8 +79,6 @@ document.addEventListener("DOMContentLoaded", function() {
         };
     }
 
-
-
     const activePage = window.location.pathname.split("/").pop() || "index.html";
     const navLinks = document.querySelectorAll(".nav-links a");
 
@@ -99,10 +90,30 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-
     function showWarning(msg, element) {
         alert("⚠️ Warning: " + msg);
         element.style.border = "2px solid #fc0b0b";
         element.focus();
     }
+
+const menuBtn = document.querySelector(".menu-btn");
+const closeBtn = document.querySelector(".close-btn");
+const navMenu = document.querySelector(".nav-links");
+
+if (menuBtn && closeBtn && navMenu) {
+    menuBtn.onclick = function() {
+        navMenu.classList.add("show");
+    };
+
+    closeBtn.onclick = function() {
+        navMenu.classList.remove("show");
+    };
+
+    navMenu.querySelectorAll("a").forEach(function(link) {
+        link.onclick = function() {
+            navMenu.classList.remove("show");
+        };
+    });
+}
+
 });
