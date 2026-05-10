@@ -1,4 +1,4 @@
-/* BASIC RESET */
+
 * {
     margin: 0;
     padding: 0;
@@ -50,8 +50,7 @@ nav {
     border-radius: 5px;
 }
 
-/* HERO SECTION */
-/* REPLACE your old .hero code with this */
+
 .hero {
     position: relative;
     height: 70vh;
@@ -60,10 +59,10 @@ nav {
     align-items: center;
     text-align: center;
     color: white;
-    overflow: hidden; /* This keeps the video inside the box */
+    overflow: hidden; 
 }
 
-/* Add this new class for the video */
+
 .hero-video {
     position: absolute;
     top: 50%;
@@ -72,12 +71,12 @@ nav {
     min-height: 100%;
     width: auto;
     height: auto;
-    z-index: -2; /* Sends video to the back */
+    z-index: -2; 
     transform: translate(-50%, -50%);
     object-fit: cover;
 }
 
-/* This creates the dark tint so your text stays easy to read */
+
 .hero::before {
     content: "";
     position: absolute;
@@ -85,7 +84,7 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* Adjust 0.4 to make it darker/lighter */
+    background: rgba(0, 0, 0, 0.4);
     z-index: -1;
 }
 
@@ -117,7 +116,6 @@ nav {
     background: #e5a902; 
 }
 
-/* SERVICE HIGHLIGHTS */
 .section { 
     padding: 80px 8%; 
     text-align: center; 
@@ -159,11 +157,64 @@ nav {
     padding: 0 15px; 
 }
 
-/* FOOTER */
+
 footer {
     background: #333;
     color: white;
     text-align: center;
     padding: 30px;
     margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 5%;
+    }
+
+    nav img {
+        width: 220px;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .nav-links {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .btn-nav {
+        display: block;
+        width: 100%;
+    }
+
+    .hero {
+        height: 60vh;
+        padding: 0 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 30px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .section {
+        padding: 50px 5%;
+    }
 }
