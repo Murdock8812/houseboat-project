@@ -87,59 +87,92 @@
             margin-top: 50px;
         }
 
+.menu-btn,
+.close-btn {
+    display: none;
+}
 
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 15px;
-                padding: 15px 5%;
-            }
+@media (max-width: 768px) {
+    nav {
+        padding: 12px 5%;
+    }
 
-            nav img {
-                width: 220px;
-                max-width: 100%;
-                height: auto;
-            }
+    nav img {
+        width: 190px;
+        height: auto;
+    }
 
-            .nav-links {
-                width: 100%;
-                flex-direction: column;
-                gap: 10px;
-            }
+    .menu-btn {
+        display: block;
+        font-size: 30px;
+        background: none;
+        border: none;
+        color: #003580;
+        cursor: pointer;
+        z-index: 3001;
+    }
 
-            .nav-links li {
-                width: 100%;
-                text-align: center;
-            }
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -280px;
+        width: 260px;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 0;
+        padding: 80px 25px 25px;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.2);
+        transition: right 0.3s ease;
+        z-index: 3000;
+    }
 
-            .nav-links a {
-                display: block;
-                width: 100%;
-                padding: 10px;
-            }
+    .nav-links.show {
+        right: 0;
+    }
 
-            .btn-nav {
-                display: block;
-                width: 100%;
-            }
-        }
+    .nav-links li {
+        width: 100%;
+        margin-bottom: 18px;
+    }
 
-        @media (max-width: 768px) {
-            .gallery-container {
-                padding: 35px 5%;
-            }
+    .nav-links a {
+        display: block;
+        width: 100%;
+        font-size: 16px;
+        padding: 10px 0;
+    }
 
-            .grid {
-                grid-template-columns: 1fr;
-            }
-        }
+    .btn-nav {
+        text-align: center;
+        padding: 12px;
+        width: 100%;
+    }
+
+    .close-btn {
+        display: block;
+        position: absolute;
+        top: 18px;
+        right: 22px;
+        font-size: 32px;
+        background: none;
+        border: none;
+        color: #003580;
+        cursor: pointer;
+    }
+}
+
     </style>
     <link rel="icon" type="image/x-icon" href="/Pictures/tlogo.png">
 </head>
 <body>
     <nav>
-        <div ><img src="Pictures/logo.png" width="400px" alt="logo"></div>
+        <div><img src="Pictures/logo.png" width="400px" alt="logo"></div>
+        <button class="menu-btn">&#9776;</button>
         <ul class="nav-links">
+            <button class="close-btn">&times;</button>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="packages.html">Packages</a></li>
