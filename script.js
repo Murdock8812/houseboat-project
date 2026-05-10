@@ -1,13 +1,8 @@
-/**
- * A20 - Houseboat Reservation Project Logic
- * Handles Date Validation, Form Warnings, and Nav Highlighting
- */
 
 document.addEventListener("DOMContentLoaded", function() {
     console.log("Project A20 Logic: Successfully Connected.");
 
-    // --- 1. GLOBAL DATE VALIDATION ---
-    // Prevents users from selecting past dates on Home or Booking pages
+
     const datePicker = document.querySelector("input[type='date']");
     if (datePicker) {
         const today = new Date().toISOString().split('T')[0];
@@ -15,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 
-    // --- 2. HOME PAGE: QUICK SEARCH WARNING ---
     const homeSearchBtn = document.querySelector(".btn-search");
     if (homeSearchBtn) {
         homeSearchBtn.onclick = function() {
@@ -29,13 +23,12 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 
-    // --- 3. BOOKING PAGE: VALIDATION & RESERVATION ---
     const submitBooking = document.getElementById("submitBooking");
     if (submitBooking) {
         submitBooking.onclick = function(e) {
-            e.preventDefault(); // Prevents page reload
+            e.preventDefault();
 
-            // Get form elements
+       
             const name = document.getElementById("fullName");
             const email = document.getElementById("emailAddr");
             const phone = document.getElementById("phoneNumber");
@@ -43,12 +36,11 @@ document.addEventListener("DOMContentLoaded", function() {
             const pkg = document.getElementById("packageType");
             const guests = document.getElementById("guestCount");
 
-            // Reset any previous warning styles
             [name, email, phone, date, pkg].forEach(el => {
                 if(el) el.style.border = "1px solid #ddd";
             });
 
-            // Logical Warnings (Validation)
+           
             if (name.value.trim().length < 3) {
                 showWarning("Please enter your full name.", name);
             } 
@@ -65,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 showWarning("Please select a houseboat package.", pkg);
             } 
             else {
-                // Success Scenario
+            
                 alert("✅ RESERVATION CONFIRMED!\n\nName: " + name.value + 
                       "\nPackage: " + pkg.value + 
                       "\nDate: " + date.value + 
@@ -78,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 
-    // --- 4. CONTACT PAGE: MESSAGE VALIDATION ---
     const contactForm = document.getElementById("contactForm");
     if (contactForm) {
         contactForm.onsubmit = function(e) {
@@ -96,8 +87,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 
-    // --- 5. UI HELPER: NAV LINK HIGHLIGHTER ---
-    // Automatically highlights the active page in the navigation menu
+
     const activePage = window.location.pathname.split("/").pop() || "index.html";
     const navLinks = document.querySelectorAll(".nav-links a");
 
@@ -110,7 +100,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 
-    // Helper Function for Warnings
     function showWarning(msg, element) {
         alert("⚠️ Warning: " + msg);
         element.style.border = "2px solid #fc0b0b";
