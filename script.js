@@ -96,24 +96,24 @@ document.addEventListener("DOMContentLoaded", function() {
         element.focus();
     }
 
-const menuBtn = document.querySelector(".menu-btn");
-const closeBtn = document.querySelector(".close-btn");
-const navMenu = document.querySelector(".nav-links");
+    const menuBtn = document.querySelector(".menu-btn");
+    const closeBtn = document.querySelector(".close-btn");
+    const navMenu = document.querySelector(".nav-links");
 
-if (menuBtn && closeBtn && navMenu) {
-    menuBtn.onclick = function() {
-        navMenu.classList.add("show");
-    };
+    if (menuBtn && closeBtn && navMenu) {
+        menuBtn.addEventListener("click", function() {
+            navMenu.classList.add("show");
+        });
 
-    closeBtn.onclick = function() {
-        navMenu.classList.remove("show");
-    };
-
-    navMenu.querySelectorAll("a").forEach(function(link) {
-        link.onclick = function() {
+        closeBtn.addEventListener("click", function() {
             navMenu.classList.remove("show");
-        };
-    });
-}
+        });
+
+        navMenu.querySelectorAll("a").forEach(function(link) {
+            link.addEventListener("click", function() {
+                navMenu.classList.remove("show");
+            });
+        });
+    }
 
 });
